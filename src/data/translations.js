@@ -9,8 +9,7 @@ export const translations = {
     },
     hero: {
       badge: 'Available for new projects',
-      greeting: "Hi, I'm",
-      name: 'Alex Morgan',
+      name: 'Jan Pšenčík ',
       title1: 'Frontend Developer',
       title2: 'UI Enthusiast',
       bio: 'I craft performant, pixel-perfect interfaces that bridge the gap between design and engineering. Focused on developer experience and end-user delight.',
@@ -95,8 +94,7 @@ export const translations = {
     },
     hero: {
       badge: 'Dostupný pro nové projekty',
-      greeting: 'Ahoj, jsem',
-      name: 'Alex Morgan',
+      name: 'Jan Pšenčík',
       title1: 'Frontend vývojář',
       title2: 'UI nadšenec',
       bio: 'Vytvářím výkonná, pixel-perfektní rozhraní, která propojují design s inženýrstvím. Zaměřuji se na vývojářský zážitek a radost koncových uživatelů.',

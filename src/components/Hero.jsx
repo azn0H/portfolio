@@ -181,9 +181,8 @@ export default function Hero({ darkMode, t }) {
                 className="font-display font-bold text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.04] tracking-tight"
               >
                 <span className={darkMode ? 'text-white/70' : 'text-gray-500'}>
-                  {t.hero.greeting}{' '}
+                  {' '}
                 </span>
-                <br />
                 <span className="gradient-text">{t.hero.name}</span>
               </motion.h1>
             </motion.div>

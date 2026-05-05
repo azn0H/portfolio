@@ -1,4 +1,4 @@
-# Alex Morgan — Portfolio
+# aznoh.cz — Portfolio
 
 A modern, premium personal portfolio website built with React, Tailwind CSS, and Framer Motion.
 
@@ -25,7 +25,7 @@ src/
 │   ├── ProjectCard.jsx
 │   └── Contact.jsx
 ├── data/
-│   └── projects.js       ← Edit your projects & skills here
+│   └── projects.js       
 ├── hooks/
 │   └── useActiveSection.js
 ├── App.jsx

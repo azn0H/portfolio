@@ -48,8 +48,8 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
             whileTap={{ scale: 0.97 }}
             className="font-display font-bold text-lg tracking-tight select-none"
           >
-            <span className="gradient-text">Alex</span>
-            <span className={darkMode ? 'text-white/80' : 'text-gray-800'}>.dev</span>
+            <span className="gradient-text">aznoh</span>
+            <span className={darkMode ? 'text-white/80' : 'text-gray-800'}>.cz</span>
           </motion.a>
 
           <ul className="hidden md:flex items-center gap-1">
@@ -84,7 +84,7 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
           <div className="flex items-center gap-2">
             {/* Language switcher */}
             <div className={`hidden md:flex items-center gap-0.5 p-1 rounded-xl ${darkMode ? 'bg-white/8' : 'bg-black/6'}`}>
-              {['en', 'cs'].map((l) => (
+              {['cs', 'en'].map((l) => (
                 <motion.button
                   key={l}
                   onClick={() => setLang(l)}
