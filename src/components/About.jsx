@@ -67,7 +67,7 @@ export default function About({ darkMode, t }) {
 
   return (
     <section id="about" ref={sectionRef} className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
         <Canvas dpr={[1, 1.5]}>
           <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={60} />
           <ambientLight intensity={darkMode ? 0.5 : 1} />
