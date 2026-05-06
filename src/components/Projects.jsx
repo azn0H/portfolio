@@ -8,7 +8,7 @@ export default function Projects({ darkMode, t }) {
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const [activeFilter, setActiveFilter] = useState(0) // index into t.projects.filters
 
-  const FILTER_KEYS = ['All', 'Featured', 'React', 'Node.js', 'TypeScript']
+  const FILTER_KEYS = ['All', 'Featured', 'React', 'Python', 'TypeScript']
 
   const filtered = projects.filter((p) => {
     const key = FILTER_KEYS[activeFilter]
@@ -49,9 +49,6 @@ export default function Projects({ darkMode, t }) {
               {t.projects.heading1}{' '}
               <span className="gradient-text">{t.projects.heading2}</span>
             </h2>
-            <p className={`font-body text-sm max-w-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-              {t.projects.subtitle}
-            </p>
           </div>
         </motion.div>
 
@@ -133,7 +130,7 @@ export default function Projects({ darkMode, t }) {
             {t.projects.viewAllSub}
           </p>
           <motion.a
-            href="https://github.com"
+            href="https://github.com/azn0H?tab=repositories"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.05, y: -2 }}

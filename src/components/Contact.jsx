@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { Github, Linkedin, Mail, Send, CheckCircle2, Loader2, Twitter } from 'lucide-react'
+import { Github, Linkedin, Mail, Send, CheckCircle2, Loader2, Instagram } from 'lucide-react'
 
 export default function Contact({ darkMode, t }) {
   const ref = useRef(null)
@@ -28,23 +28,43 @@ export default function Contact({ darkMode, t }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
-    if (Object.keys(errs).length) { setErrors(errs); return }
+    
+    if (Object.keys(errs).length) { 
+      setErrors(errs)
+      return 
+    }
+    
     setStatus('loading')
-    await new Promise((r) => setTimeout(r, 1500))
-    setStatus('success')
-    setForm({ name: '', email: '', message: '' })
+
+    try {
+      const response = await fetch('https://formspree.io/f/mvgwzqgo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', message: '' })
+      } else {
+        setStatus('idle')
+      }
+    } catch (error) {
+      setStatus('idle')
+    }
   }
 
   const socials = [
-    { icon: Github,   href: 'https://github.com',   ...c.socials[0] },
-    { icon: Linkedin, href: 'https://linkedin.com',  ...c.socials[1] },
-    { icon: Twitter,  href: 'https://twitter.com',   ...c.socials[2] },
-    { icon: Mail,     href: 'mailto:alex@example.com', ...c.socials[3] },
+    { icon: Github,   href: 'https://github.com/azn0H',   ...c.socials[0] },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/aznoh/',  ...c.socials[1] },
+    { icon: Instagram, href: 'https://www.instagram.com/azn0h_/', ...c.socials[2] },
+    { icon: Mail,     href: 'mailto:info@aznoh.cz', ...c.socials[3] },
   ]
 
   return (
     <section id="contact" className="py-24 relative">
-      {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           animate={{ scale: [1, 1.12, 1], opacity: [0.06, 0.1, 0.06] }}
@@ -55,7 +75,6 @@ export default function Contact({ darkMode, t }) {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 relative" ref={ref}>
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -73,7 +92,6 @@ export default function Contact({ darkMode, t }) {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -36 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -164,14 +182,12 @@ export default function Contact({ darkMode, t }) {
             </AnimatePresence>
           </motion.div>
 
-          {/* Sidebar */}
           <motion.div
             initial={{ opacity: 0, x: 36 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.25 }}
             className="lg:col-span-2 space-y-5"
           >
-            {/* Availability */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className={`p-6 rounded-2xl border transition-all duration-300 ${
@@ -189,7 +205,6 @@ export default function Contact({ darkMode, t }) {
               </p>
             </motion.div>
 
-            {/* Social links */}
             <div className="space-y-3">
               {socials.map((social, i) => {
                 const Icon = social.icon
@@ -244,7 +259,6 @@ export default function Contact({ darkMode, t }) {
         </div>
       </div>
 
-      {/* Footer */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -254,7 +268,7 @@ export default function Contact({ darkMode, t }) {
       >
         <p className={`font-mono text-xs ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>
           {t.footer.builtBy}{' '}
-          <span className="gradient-text font-medium">Alex Morgan</span>
+          <span className="gradient-text font-medium">aznoh.cz</span>
           {' '}· {new Date().getFullYear()}
         </p>
       </motion.div>

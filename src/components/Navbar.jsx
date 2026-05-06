@@ -23,7 +23,22 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
 
   const go = (href) => {
     setMobileOpen(false)
-    document.getElementById(href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' })
+    
+    setTimeout(() => {
+      const element = document.getElementById(href.replace('#', ''))
+      if (element) {
+        const offset = 80
+        const bodyRect = document.body.getBoundingClientRect().top
+        const elementRect = element.getBoundingClientRect().top
+        const elementPosition = elementRect - bodyRect
+        const offsetPosition = elementPosition - offset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }, 150)
   }
 
   return (
@@ -41,18 +56,20 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
         }`}
       >
         <nav className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-          <motion.a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); go('#home') }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="font-display font-bold text-lg tracking-tight select-none"
-          >
-            <span className="gradient-text">aznoh</span>
-            <span className={darkMode ? 'text-white/80' : 'text-gray-800'}>.cz</span>
-          </motion.a>
+          <div className="flex md:flex-1 items-center justify-start">
+            <motion.a
+              href="#home"
+              onClick={(e) => { e.preventDefault(); go('#home') }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="font-display font-bold text-lg tracking-tight select-none"
+            >
+              <span className="gradient-text">aznoh</span>
+              <span className={darkMode ? 'text-white/80' : 'text-gray-800'}>.cz</span>
+            </motion.a>
+          </div>
 
-          <ul className="hidden md:flex items-center gap-1">
+          <ul className="hidden md:flex items-center justify-center gap-1">
             {NAV_LINKS.map(({ href, label }) => {
               const id = href.replace('#', '')
               const isActive = activeSection === id
@@ -81,8 +98,7 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
             })}
           </ul>
 
-          <div className="flex items-center gap-2">
-            {/* Language switcher */}
+          <div className="flex md:flex-1 items-center justify-end gap-2">
             <div className={`hidden md:flex items-center gap-0.5 p-1 rounded-xl ${darkMode ? 'bg-white/8' : 'bg-black/6'}`}>
               {['cs', 'en'].map((l) => (
                 <motion.button
@@ -96,7 +112,6 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
               ))}
             </div>
 
-            {/* Dark mode */}
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={toggleDarkMode}
@@ -152,7 +167,6 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
         </nav>
       </motion.header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

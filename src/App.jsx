@@ -9,7 +9,8 @@ import { translations } from './data/translations'
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true)
-  const [lang, setLangState] = useState('en')
+  const defaultLang = navigator.language.startsWith('cs') ? 'cs' : 'en'
+  const [lang, setLangState] = useState(defaultLang)
   const [langChanging, setLangChanging] = useState(false)
 
   const t = translations[lang]
@@ -20,7 +21,6 @@ export default function App() {
 
   const toggleDarkMode = () => setDarkMode((v) => !v)
 
-  // Smooth language switch with brief fade transition
   const setLang = (l) => {
     if (l === lang) return
     setLangChanging(true)
@@ -32,7 +32,6 @@ export default function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-bg text-gray-100' : 'bg-bg-light text-gray-900'}`}>
-      {/* Grain texture */}
       <div className="noise-overlay" aria-hidden="true" />
 
       <Navbar
@@ -43,7 +42,6 @@ export default function App() {
         t={t}
       />
 
-      {/* Language transition overlay */}
       <AnimatePresence>
         {langChanging && (
           <motion.div
