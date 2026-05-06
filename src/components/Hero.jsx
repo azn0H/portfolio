@@ -124,7 +124,7 @@ export default function Hero({ darkMode, t }) {
   const typed = useTypewriter(words)
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[100dvh] flex items-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <motion.div
           className="absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full opacity-20 blur-[130px]"

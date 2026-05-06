@@ -31,7 +31,7 @@ export default function App() {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-bg text-gray-100' : 'bg-bg-light text-gray-900'}`}>
+    <div className={`min-h-[100dvh] transition-colors duration-500 ${darkMode ? 'bg-bg text-gray-100' : 'bg-bg-light text-gray-900'}`}>
       <div className="noise-overlay" aria-hidden="true" />
 
       <Navbar
