@@ -19,7 +19,7 @@ const categoryColorsLight = {
   Tools:    { bg: 'bg-emerald-50 border-emerald-200 text-emerald-700', dot: 'bg-emerald-500' },
 }
 
-const exploring = ['C++', 'C#']
+const exploring = ['Rust', 'WebAssembly', 'Edge Computing', 'AI/ML APIs']
 
 function BackgroundShapes({ darkMode }) {
   const groupRef = useRef()
@@ -121,8 +121,8 @@ export default function About({ darkMode, t }) {
                   animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
                   transition={{ duration: 0.55, delay: 0.3 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -4, scale: 1.03 }}
-                  className={`p-5 rounded-2xl border cursor-default transition-shadow duration-300 backdrop-blur-sm ${
-                    darkMode ? 'bg-white/4 border-white/8 hover:border-white/15' : 'bg-white/70 border-gray-200 hover:border-indigo-200 hover:shadow-md'
+                  className={`p-5 rounded-2xl border cursor-default transition-shadow duration-300 ${
+                    darkMode ? 'bg-white/5 border-white/8 hover:border-white/15' : 'bg-white border-gray-200 hover:border-indigo-200 hover:shadow-md'
                   }`}
                 >
                   <div className="font-display font-bold text-3xl gradient-text mb-1">{stat.value}</div>
@@ -154,7 +154,7 @@ export default function About({ darkMode, t }) {
                           animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
                           transition={{ duration: 0.4, delay: 0.38 + ci * 0.07 + si * 0.04, ease: [0.22, 1, 0.36, 1] }}
                           whileHover={{ scale: 1.08, y: -3 }}
-                          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-mono font-medium cursor-default transition-all duration-200 backdrop-blur-md ${colors.bg}`}
+                          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-mono font-medium cursor-default transition-all duration-200 ${colors.bg}`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
                           {skill.name}
@@ -170,7 +170,7 @@ export default function About({ darkMode, t }) {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.75 }}
-              className={`mt-10 p-5 rounded-2xl border backdrop-blur-sm ${
+              className={`mt-10 p-5 rounded-2xl border ${
                 darkMode ? 'bg-accent-indigo/5 border-accent-indigo/15' : 'bg-indigo-50/70 border-indigo-100'
               }`}
             >

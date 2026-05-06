@@ -37,8 +37,6 @@
 }
 
 @layer components {
-  .glass { @apply bg-white/5 backdrop-blur-md border border-white/10; }
-  .glass-light { @apply bg-black/5 backdrop-blur-md border border-black/10; }
 
   .gradient-text {
     @apply bg-gradient-to-r from-accent-indigo via-accent-violet to-accent-cyan bg-clip-text text-transparent;
