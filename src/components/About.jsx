@@ -6,20 +6,20 @@ import { skills } from '../data/projects'
 import { StaggerContainer, StaggerItem } from './AnimatedText'
 
 const categoryColors = {
-  Language: { bg: 'bg-accent-cyan/10 border-accent-cyan/20 text-accent-cyan',    dot: 'bg-accent-cyan' },
+  Language: { bg: 'bg-accent-cyan/10 border-accent-cyan/20 text-accent-cyan', dot: 'bg-accent-cyan' },
   Frontend: { bg: 'bg-accent-indigo/10 border-accent-indigo/20 text-accent-indigo', dot: 'bg-accent-indigo' },
-  Backend:  { bg: 'bg-accent-violet/10 border-accent-violet/20 text-accent-violet', dot: 'bg-accent-violet' },
-  Tools:    { bg: 'bg-accent-emerald/10 border-accent-emerald/20 text-accent-emerald', dot: 'bg-accent-emerald' },
+  Backend: { bg: 'bg-accent-violet/10 border-accent-violet/20 text-accent-violet', dot: 'bg-accent-violet' },
+  Tools: { bg: 'bg-accent-emerald/10 border-accent-emerald/20 text-accent-emerald', dot: 'bg-accent-emerald' },
 }
 
 const categoryColorsLight = {
-  Language: { bg: 'bg-cyan-50 border-cyan-200 text-cyan-700',       dot: 'bg-cyan-500' },
+  Language: { bg: 'bg-cyan-50 border-cyan-200 text-cyan-700', dot: 'bg-cyan-500' },
   Frontend: { bg: 'bg-indigo-50 border-indigo-200 text-indigo-700', dot: 'bg-indigo-500' },
-  Backend:  { bg: 'bg-violet-50 border-violet-200 text-violet-700', dot: 'bg-violet-500' },
-  Tools:    { bg: 'bg-emerald-50 border-emerald-200 text-emerald-700', dot: 'bg-emerald-500' },
+  Backend: { bg: 'bg-violet-50 border-violet-200 text-violet-700', dot: 'bg-violet-500' },
+  Tools: { bg: 'bg-emerald-50 border-emerald-200 text-emerald-700', dot: 'bg-emerald-500' },
 }
 
-const exploring = ['Rust', 'WebAssembly', 'Edge Computing', 'AI/ML APIs']
+const exploring = ['C#', '.NET']
 
 function BackgroundShapes({ darkMode }) {
   const groupRef = useRef()
@@ -121,9 +121,8 @@ export default function About({ darkMode, t }) {
                   animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
                   transition={{ duration: 0.55, delay: 0.3 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -4, scale: 1.03 }}
-                  className={`p-5 rounded-2xl border cursor-default transition-shadow duration-300 ${
-                    darkMode ? 'bg-white/5 border-white/8 hover:border-white/15' : 'bg-white border-gray-200 hover:border-indigo-200 hover:shadow-md'
-                  }`}
+                  className={`p-5 rounded-2xl border cursor-default transition-shadow duration-300 ${darkMode ? 'bg-white/5 border-white/8 hover:border-white/15' : 'bg-white border-gray-200 hover:border-indigo-200 hover:shadow-md'
+                    }`}
                 >
                   <div className="font-display font-bold text-3xl gradient-text mb-1">{stat.value}</div>
                   <div className={`font-body text-sm ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>{stat.label}</div>
@@ -170,9 +169,8 @@ export default function About({ darkMode, t }) {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.75 }}
-              className={`mt-10 p-5 rounded-2xl border ${
-                darkMode ? 'bg-accent-indigo/5 border-accent-indigo/15' : 'bg-indigo-50/70 border-indigo-100'
-              }`}
+              className={`mt-10 p-5 rounded-2xl border ${darkMode ? 'bg-accent-indigo/5 border-accent-indigo/15' : 'bg-indigo-50/70 border-indigo-100'
+                }`}
             >
               <p className={`font-mono text-xs tracking-widest uppercase mb-3 ${darkMode ? 'text-accent-indigo' : 'text-indigo-500'}`}>
                 {t.about.exploring}
