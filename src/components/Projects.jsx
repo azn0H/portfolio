@@ -65,13 +65,12 @@ export default function Projects({ darkMode, t }) {
               onClick={() => setActiveFilter(i)}
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-4 py-1.5 rounded-full border text-xs font-mono font-medium transition-all duration-250 ${
-                activeFilter === i
-                  ? 'text-white border-transparent'
-                  : darkMode
+              className={`relative px-4 py-1.5 rounded-full border text-xs font-mono font-medium transition-all duration-250 ${activeFilter === i
+                ? 'text-white border-transparent'
+                : darkMode
                   ? 'border-white/10 text-gray-500 hover:text-gray-300 hover:border-white/20'
                   : 'border-gray-200 text-gray-400 hover:text-gray-700 hover:border-gray-300'
-              }`}
+                }`}
             >
               {activeFilter === i && (
                 <motion.span
@@ -126,20 +125,16 @@ export default function Projects({ darkMode, t }) {
           transition={{ duration: 0.6 }}
           className="mt-14 text-center"
         >
-          <p className={`font-body text-sm mb-4 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-            {t.projects.viewAllSub}
-          </p>
           <motion.a
-            href="https://github.com/azn0H?tab=repositories"
+            href="https://metaport.aznoh.cz"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl border text-sm font-body font-medium transition-all duration-300 ${
-              darkMode
-                ? 'border-white/12 text-gray-300 hover:text-white hover:border-white/25 hover:bg-white/5'
-                : 'border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-300 hover:bg-gray-50'
-            }`}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl border text-sm font-body font-medium transition-all duration-300 ${darkMode
+              ? 'border-white/12 text-gray-300 hover:text-white hover:border-white/25 hover:bg-white/5'
+              : 'border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-300 hover:bg-gray-50'
+              }`}
           >
             {t.projects.viewAll}
           </motion.a>

@@ -40,8 +40,7 @@ export const translations = {
       filters: ['All', 'Featured', 'React', 'Python', 'TypeScript'],
       liveDemo: 'Live Demo',
       github: 'GitHub',
-      viewAll: 'View All on GitHub',
-      viewAllSub: 'More experiments and open-source work on GitHub',
+      viewAll: 'View more projects',
     },
     contact: {
       sectionLabel: "Let's Talk",
@@ -123,8 +122,7 @@ export const translations = {
       filters: ['Vše', 'Doporučené', 'React', 'Python', 'TypeScript'],
       liveDemo: 'Živá ukázka',
       github: 'Zdrojový kód',
-      viewAll: 'Prohlédnout si vše na GitHubu',
-      viewAllSub: 'Další menší projekty, pokusy a open-source kód najdete u mě na profilu.',
+      viewAll: 'Zobrazit další projekty',
     },
     contact: {
       sectionLabel: 'Pojďme se pobavit',
