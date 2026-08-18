@@ -51,13 +51,13 @@
   }
 
   .btn-primary {
-    @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-body font-medium text-sm text-white overflow-hidden transition-all duration-300;
+    @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-body font-medium text-sm text-white overflow-hidden transition-all duration-300 z-0;
     background: linear-gradient(135deg, #818CF8, #A78BFA, #22D3EE);
     background-size: 200% 200%;
   }
   .btn-primary::before {
     content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300 -z-10;
     background: linear-gradient(135deg, #A78BFA, #22D3EE, #818CF8);
   }
   .btn-primary:hover::before { @apply opacity-100; }

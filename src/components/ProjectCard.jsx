@@ -130,7 +130,7 @@ export default function ProjectCard({ project, index, darkMode, t }) {
             className="btn-primary flex-1 justify-center py-2.5 text-xs"
           >
             <ExternalLink size={13} />
-            {t.projects.liveDemo}
+            <span>{t.projects.liveDemo}</span>
           </motion.a>
           <motion.a
             href={project.githubUrl}
