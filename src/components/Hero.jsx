@@ -62,8 +62,8 @@ function OptimizedUICards({ darkMode }) {
 
       <Float speed={2.5} rotationIntensity={0.5} floatIntensity={1.5} position={[1.2, -0.6, 0.5]}>
         <RoundedBox args={[1.6, 1, 0.05]} radius={0.05} smoothness={2}>
-          <meshPhysicalMaterial 
-            color={darkMode ? '#A78BFA' : '#6366F1'} 
+          <meshPhysicalMaterial
+            color={darkMode ? '#A78BFA' : '#6366F1'}
             transparent={true}
             opacity={0.8}
             roughness={0.2}
@@ -86,8 +86,8 @@ function OptimizedUICards({ darkMode }) {
 
       <Float speed={3} rotationIntensity={0.8} floatIntensity={2} position={[-1.5, 0.8, 0.8]}>
         <RoundedBox args={[1, 1, 0.05]} radius={0.05} smoothness={2}>
-          <meshPhysicalMaterial 
-            color="#22D3EE" 
+          <meshPhysicalMaterial
+            color="#22D3EE"
             transparent={true}
             opacity={0.85}
             roughness={0.1}
@@ -110,7 +110,7 @@ const staggerContainer = {
 
 const slideUp = {
   hidden: { opacity: 0, y: 36 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } },
 }
 
 export default function Hero({ darkMode, t }) {
@@ -147,7 +147,7 @@ export default function Hero({ darkMode, t }) {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-28 pb-16 w-full">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-8">
-          
+
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -157,14 +157,11 @@ export default function Hero({ darkMode, t }) {
             <motion.div variants={slideUp} className="mb-7">
               <motion.span
                 whileHover={{ scale: 1.04 }}
-                className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium border cursor-default ${
-                  darkMode
+                className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium border cursor-default ${darkMode
                     ? 'border-accent-indigo/30 bg-accent-indigo/10 text-accent-indigo'
                     : 'border-indigo-300 bg-indigo-50 text-indigo-600'
-                }`}
+                  }`}
               >
-                <span className="glow-dot w-1.5 h-1.5 rounded-full bg-accent-emerald" />
-                {t.hero.badge}
               </motion.span>
             </motion.div>
 
@@ -184,9 +181,8 @@ export default function Hero({ darkMode, t }) {
 
             <motion.p
               variants={slideUp}
-              className={`font-body text-base md:text-lg leading-relaxed mb-10 max-w-lg ${
-                darkMode ? 'text-gray-400' : 'text-gray-500'
-              }`}
+              className={`font-body text-base md:text-lg leading-relaxed mb-10 max-w-lg ${darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}
             >
               {t.hero.bio}
             </motion.p>
@@ -202,11 +198,10 @@ export default function Hero({ darkMode, t }) {
                 onClick={() => go('contact')}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className={`btn-outline ${
-                  darkMode
+                className={`btn-outline ${darkMode
                     ? 'border-white/15 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5'
                     : 'border-black/15 text-gray-600 hover:text-gray-900 hover:border-black/25 hover:bg-black/3'
-                }`}
+                  }`}
               >
                 <Mail size={16} />
                 {t.hero.cta2}
@@ -231,8 +226,8 @@ export default function Hero({ darkMode, t }) {
                   <span className="hidden sm:inline">{label}</span>
                 </motion.a>
               ))}
-             
-              
+
+
             </motion.div>
           </motion.div>
 
