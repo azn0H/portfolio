@@ -8,7 +8,6 @@ export const translations = {
       hireMe: 'Hire Me',
     },
     hero: {
-      badge: 'Available for new projects',
       name: 'Jan Pšenčík ',
       title1: 'Frontend Developer',
       title2: 'UI Enthusiast',
@@ -84,7 +83,7 @@ export const translations = {
     },
   },
 
-cs: {
+  cs: {
     nav: {
       home: 'Domů',
       about: 'O mně',
@@ -93,7 +92,6 @@ cs: {
       hireMe: 'Napište mi',
     },
     hero: {
-      badge: 'Otevřený novým projektům',
       name: 'Jan Pšenčík',
       title1: 'Frontend vývojář',
       title2: 'UI nadšenec',

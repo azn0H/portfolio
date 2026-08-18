@@ -65,7 +65,7 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between relative z-50">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 h-16 flex items-center justify-between relative z-50">
         <div className="flex md:flex-1 items-center justify-start">
           <motion.a
             href="#home"

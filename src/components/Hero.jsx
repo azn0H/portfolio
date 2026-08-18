@@ -155,14 +155,6 @@ export default function Hero({ darkMode, t }) {
             className="flex-1 max-w-2xl pointer-events-auto"
           >
             <motion.div variants={slideUp} className="mb-7">
-              <motion.span
-                whileHover={{ scale: 1.04 }}
-                className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium border cursor-default ${darkMode
-                    ? 'border-accent-indigo/30 bg-accent-indigo/10 text-accent-indigo'
-                    : 'border-indigo-300 bg-indigo-50 text-indigo-600'
-                  }`}
-              >
-              </motion.span>
             </motion.div>
 
             <motion.div variants={slideUp} className="mb-3 overflow-hidden">
@@ -199,8 +191,8 @@ export default function Hero({ darkMode, t }) {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className={`btn-outline ${darkMode
-                    ? 'border-white/15 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5'
-                    : 'border-black/15 text-gray-600 hover:text-gray-900 hover:border-black/25 hover:bg-black/3'
+                  ? 'border-white/15 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5'
+                  : 'border-black/15 text-gray-600 hover:text-gray-900 hover:border-black/25 hover:bg-black/3'
                   }`}
               >
                 <Mail size={16} />
