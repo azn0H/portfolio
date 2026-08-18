@@ -21,6 +21,17 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
   const go = (href) => {
     setMobileOpen(false)
     
@@ -48,7 +59,7 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
+          scrolled || mobileOpen
             ? darkMode
               ? 'bg-bg/80 backdrop-blur-xl border-b border-white/8 shadow-lg shadow-black/20'
               : 'bg-white/80 backdrop-blur-xl border-b border-black/8 shadow-lg shadow-black/10'
@@ -149,14 +160,15 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
               whileTap={{ scale: 0.9 }}
               className={`md:hidden p-2 rounded-lg transition-colors ${darkMode ? 'text-gray-400 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-black/8'}`}
               onClick={() => setMobileOpen((v) => !v)}
+              aria-label="Toggle menu"
             >
-              <AnimatePresence mode="wait" initial={false}>
+              <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                   key={mobileOpen ? 'x' : 'm'}
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.15 }}
                   className="block"
                 >
                   {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -169,66 +181,78 @@ export default function Navbar({ darkMode, toggleDarkMode, lang, setLang, t }) {
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className={`fixed inset-x-0 top-16 z-40 overflow-hidden ${
-              darkMode ? 'bg-bg/95 backdrop-blur-xl border-b border-white/10' : 'bg-white/95 backdrop-blur-xl border-b border-black/10'
-            }`}
-          >
-            <motion.ul
-              initial="hidden"
-              animate="show"
-              variants={{ show: { transition: { staggerChildren: 0.06 } } }}
-              className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1"
+          <>
+            {/* Dark backdrop overlay to dismiss when clicking outside */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 top-16 z-30 bg-black/40 backdrop-blur-sm md:hidden"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className={`fixed inset-x-0 top-16 z-40 max-h-[calc(100dvh-4rem)] overflow-y-auto md:hidden ${
+                darkMode ? 'bg-bg/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/50' : 'bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-2xl shadow-black/10'
+              }`}
             >
-              {NAV_LINKS.map(({ href, label }) => (
+              <motion.ul
+                initial="hidden"
+                animate="show"
+                variants={{ show: { transition: { staggerChildren: 0.04 } } }}
+                className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1"
+              >
+                {NAV_LINKS.map(({ href, label }) => (
+                  <motion.li
+                    key={href}
+                    variants={{ hidden: { opacity: 0, x: -12 }, show: { opacity: 1, x: 0, transition: { duration: 0.25 } } }}
+                  >
+                    <a
+                      href={href}
+                      onClick={(e) => { e.preventDefault(); go(href) }}
+                      className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                        darkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-black/5'
+                      }`}
+                    >
+                      {label}
+                    </a>
+                  </motion.li>
+                ))}
                 <motion.li
-                  key={href}
-                  variants={{ hidden: { opacity: 0, x: -16 }, show: { opacity: 1, x: 0, transition: { duration: 0.3 } } }}
+                  variants={{ hidden: { opacity: 0, x: -12 }, show: { opacity: 1, x: 0, transition: { duration: 0.25 } } }}
+                  className="flex gap-2 px-4 py-2"
+                >
+                  {['en', 'cs'].map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => setLang(l)}
+                      className={`lang-btn uppercase ${lang === l ? 'active' : darkMode ? 'text-gray-500' : 'text-gray-400'}`}
+                    >
+                      {l}
+                    </button>
+                  ))}
+                </motion.li>
+                <motion.li
+                  variants={{ hidden: { opacity: 0, x: -12 }, show: { opacity: 1, x: 0, transition: { duration: 0.25 } } }}
+                  className="pt-2"
                 >
                   <a
-                    href={href}
-                    onClick={(e) => { e.preventDefault(); go(href) }}
-                    className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                      darkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-black/5'
-                    }`}
+                    href="#contact"
+                    onClick={(e) => { e.preventDefault(); go('#contact') }}
+                    className="block px-4 py-3 rounded-xl text-sm font-medium text-white text-center"
+                    style={{ background: 'linear-gradient(135deg, #818CF8, #A78BFA)' }}
                   >
-                    {label}
+                    {t.nav.hireMe}
                   </a>
                 </motion.li>
-              ))}
-              <motion.li
-                variants={{ hidden: { opacity: 0, x: -16 }, show: { opacity: 1, x: 0, transition: { duration: 0.3 } } }}
-                className="flex gap-2 px-4 py-2"
-              >
-                {['en', 'cs'].map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => setLang(l)}
-                    className={`lang-btn uppercase ${lang === l ? 'active' : darkMode ? 'text-gray-500' : 'text-gray-400'}`}
-                  >
-                    {l}
-                  </button>
-                ))}
-              </motion.li>
-              <motion.li
-                variants={{ hidden: { opacity: 0, x: -16 }, show: { opacity: 1, x: 0, transition: { duration: 0.3 } } }}
-                className="pt-2"
-              >
-                <a
-                  href="#contact"
-                  onClick={(e) => { e.preventDefault(); go('#contact') }}
-                  className="block px-4 py-3 rounded-xl text-sm font-medium text-white text-center"
-                  style={{ background: 'linear-gradient(135deg, #818CF8, #A78BFA)' }}
-                >
-                  {t.nav.hireMe}
-                </a>
-              </motion.li>
-            </motion.ul>
-          </motion.div>
+              </motion.ul>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
