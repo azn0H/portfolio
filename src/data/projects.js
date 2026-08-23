@@ -1,67 +1,69 @@
 export const projects = [
   {
-    id: 1,
+    id: 'metaport',
+    title: 'MetaPort',
+    year: '2026',
+    status: 'Active',
+    tags: 'React · TypeScript · FastAPI · Docker API',
+    description: {
+      cs: 'Centrální dashboard a orchestrátor pro správu mikro-služeb, monitorování serverové infrastruktury v reálném čase a ovládání Docker kontejnerů přes Docker Engine API.',
+      en: 'Central orchestration dashboard for managing microservices, real-time server telemetry, and controlling Docker containers via the Docker Engine API.',
+    },
+    liveUrl: 'https://metaport.aznoh.cz',
+    githubUrl: 'https://github.com/azn0H/MetaPort',
+  },
+  {
+    id: 'qrco',
     title: 'QRco',
-    description:
-      'QRco je plnohodnotná webová aplikace pro generování, správu a personalizaci QR kódů. Umožňuje uživatelům vytvářet základní kódy zdarma nebo využívat pokročilé funkce jako vkládání log a změnu barev po registraci.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Axios', 'PostgreSQL', 'Python-QRCode'],
+    year: '2026',
+    status: 'Live',
+    tags: 'React · TypeScript · FastAPI · PostgreSQL',
+    description: {
+      cs: 'Webová aplikace pro generování, vektorový export (SVG/PNG) a analytiku dynamických QR kódů s integrací vlastního loga a asynchronním backendem v Pythonu.',
+      en: 'Web application for dynamic QR code generation, vector SVG/PNG styling, custom branding embeds, and scan analytics powered by an async Python backend.',
+    },
     liveUrl: 'https://qrco.aznoh.cz',
     githubUrl: 'https://github.com/azn0H/QRco',
-    featured: true,
-    color: 'indigo',
-  },
-    {
-    id: 2,
-    title: 'aznoH.cz Blog',
-    description:
-      'Jednoduchý, rychlý a moderní blogovací systém navržený pro běh na Raspberry Pi (pomocí Dockeru), ale plně funkční i na běžném PC. Aplikace podporuje Dark Mode, Galerii s Lightboxem, Připínání článků a má vlastní administraci.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Python', 'PostgreSQL',],
-    liveUrl: 'https://blog.aznoh.cz',
-    githubUrl: 'https://github.com/azn0H/RPI-Blog',
-    featured: false,
-    color: 'cyan',
   },
   {
-    id: 3,
+    id: 'taskapp',
     title: 'TaskApp',
-    description:
-      'TaskApp je moderní full-stack webová aplikace navržená pro efektivní správu úkolů a týmovou koordinaci. Aplikace klade důraz na čistý, profesionální uživatelský zážitek (UI/UX) a robustní backendovou bezpečnost. Tento projekt byl vytvořen na základě principu oddělení frontendu (React) od backendu (PHP API), což umožňuje flexibilní nasazení a škálovatelnost.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'PHP', 'MySQL'],
+    year: '2025',
+    status: 'Live',
+    tags: 'React · TypeScript · PHP API · MySQL',
+    description: {
+      cs: 'Full-stack systém pro správu týmových úkolů a koordinaci workflow se striktním oddělením React rozhraní od bezstavového REST API a transakční bezpečností v databázi.',
+      en: 'Task tracking and workflow coordination platform built with strict separation of React frontend and stateless REST API with transactional database consistency.',
+    },
     liveUrl: 'https://taskapp.aznoh.cz',
     githubUrl: 'https://github.com/azn0H/TaskApp',
-    featured: false,
-    color: 'violet',
   },
   {
-    id: 4,
-    title: 'Tiz.cz',
-    description:
-      'Passwordless authentication SDK for JavaScript apps. Supports magic links, passkeys, and OAuth2. Drop-in solution with full audit logs.',
-    tags: ['HTML', 'CSS', 'JSON', 'JavaScript',],
-    liveUrl: 'https://tiz.cz',
-    githubUrl: 'https://github.com/azn0H/Tiz.cz',
-    featured: false,
-    color: 'emerald',
+    id: 'rpi-blog',
+    title: 'RPI-Blog',
+    year: '2025',
+    status: 'Live',
+    tags: 'React · FastAPI · Docker · PostgreSQL',
+    description: {
+      cs: 'Rychlý publikační engine a systém pro správu technického obsahu optimalizovaný pro běh v izolovaných Docker kontejnerech na Raspberry Pi a Linux serverech.',
+      en: 'Lightweight publishing engine and tech log platform optimized for containerized deployments on Raspberry Pi and Linux servers.',
+    },
+    liveUrl: 'https://blog.aznoh.cz',
+    githubUrl: 'https://github.com/azn0H/RPI-Blog',
   },
 ]
 
-export const skills = [
-  // Languages
-  { name: 'JavaScript', category: 'Language' },
-  { name: 'TypeScript', category: 'Language' },
-  { name: 'Python', category: 'Language' },
-  { name: 'HTML / CSS', category: 'Language' },
-  // Frontend
-  { name: 'React', category: 'Frontend' },
-  { name: 'Next.js', category: 'Frontend' },
-  { name: 'Tailwind CSS', category: 'Frontend' },
-  { name: 'Angular', category: 'Frontend' },
-  // Backend
-  { name: 'Node.js', category: 'Backend' },
-  { name: 'Python', category: 'Backend' },
-  { name: 'PostgreSQL', category: 'Backend' },
-  { name: 'FastAPI', category: 'Backend' },
-  // Tools
-  { name: 'Docker', category: 'Tools' },
-  { name: 'Git', category: 'Tools' },
+export const architectureSkills = [
+  {
+    category: { cs: 'Frontend', en: 'Frontend' },
+    items: 'React, Next.js, TypeScript, Tailwind CSS',
+  },
+  {
+    category: { cs: 'Backend', en: 'Backend' },
+    items: 'Python (FastAPI), Node.js, .NET (C#), PostgreSQL, MySQL',
+  },
+  {
+    category: { cs: 'Systémy', en: 'Systems' },
+    items: 'Docker, Linux server, Nginx, Self-hosting',
+  },
 ]
