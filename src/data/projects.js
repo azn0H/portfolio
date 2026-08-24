@@ -1,5 +1,18 @@
 export const projects = [
   {
+    id: 'Vortex',
+    title: 'Vortex',
+    year: '2026',
+    status: 'Active',
+    tags: 'C# · TypeScript · React · Docker API',
+    description: {
+      cs: 'Centrální login system. Zjednodušuje přístup k aznoh.cz aplikacím. Systém spravuje identitu, SSO, token issuing a globální role v Authentik nebo Zitadel. PostgreSQL uchovává veřejnou a omezenou konfiguraci přístupu pro každou aplikaci.',
+      en: 'Central identity and SSO orchestration portal with ASP.NET Core backend. It unifies user identity, token issuance, and role management using Authentik/Zitadel while keeping public and restricted application access configs in PostgreSQL.',
+    },
+    liveUrl: 'https://sso.aznoh.cz',
+    githubUrl: 'https://github.com/azn0H/Vortex',
+  },
+  {
     id: 'metaport',
     title: 'MetaPort',
     year: '2026',
