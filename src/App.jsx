@@ -134,7 +134,7 @@ export default function App() {
             </a>
 
             <a
-              href="mailto:info@aznoh.cz"
+              href="mailto:jan.psencik@aznoh.cz"
               className="text-link"
             >
               {t.header.email}
