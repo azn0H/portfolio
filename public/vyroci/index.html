@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noimageindex">
+  <meta name="theme-color" content="#170b23">
+  <meta name="description" content="Náš rok. Devět kapitol jednoho společného příběhu, který začal 10. října 2025.">
+  <title>Náš rok — Love Wrapped 💖</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23170b23'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='44'%3E💖%3C/text%3E%3C/svg%3E">
+  <style>
+    /* Vše je v tomto souboru. Žádné knihovny, vzdálené fonty ani obrázky. */
+    :root{color-scheme:dark;--bg:#170b23;--pink:#ffc4df;--hot:#ff4ca6;--purple:#bb92ff;--ink:#fff4fa;--muted:#bdacc9;--line:#ffffff24;--ease:cubic-bezier(.22,1,.36,1)}
+    *{box-sizing:border-box}
+    html{font-size:16px;background:var(--bg)}
+    body{margin:0;min-height:100svh;color:var(--ink);font-family:"Arial Rounded MT Bold","Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 85% 65%,#60204755,transparent 55%),radial-gradient(ellipse at 5% 20%,#59277e44,transparent 55%),var(--bg)}
+    button,input,textarea{font:inherit}button{cursor:pointer}button,a,input,textarea{-webkit-tap-highlight-color:transparent}
+    button{color:inherit}button:disabled{cursor:default;opacity:.35}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--pink);outline-offset:5px}
+    button{touch-action:manipulation}button svg{pointer-events:none}
+    [hidden]{display:none!important}
+    .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+    .ambient::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#e5c1ff22 .7px,transparent .7px);background-size:26px 26px;mask-image:linear-gradient(to bottom,transparent,#000 35%,transparent)}
+    .floating-heart{position:absolute;bottom:-60px;color:var(--pink);opacity:0;animation:float-up var(--duration) linear infinite;animation-delay:var(--delay);left:var(--left);font-size:var(--size)}
+    @keyframes float-up{0%{opacity:0;transform:translate(0,0) rotate(-12deg)}15%,70%{opacity:.17}100%{opacity:0;transform:translate(45px,-110vh) rotate(25deg)}}
+    .app{position:relative;z-index:1;max-width:1320px;min-height:100svh;margin:auto;padding:28px 54px 22px;display:flex;flex-direction:column}
+    .progress{display:flex;gap:7px;flex:none}
+    .progress button{position:relative;flex:1;border:0;padding:10px 0;background:none;min-width:0;border-radius:10px}
+    .progress button::before,.progress button::after{content:"";position:absolute;height:3px;left:0;right:0;top:9px;border-radius:8px;background:#ffffff23}
+    .progress button::after{right:100%;background:var(--pink);transition:right .55s var(--ease)}
+    .progress button.is-past::after,.progress button.is-current::after{right:0}
+    .progress button.is-current::after{background:var(--hot);box-shadow:0 0 16px #ff4ca670}
+    .header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0 12px}
+    .brand{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:800;letter-spacing:.02em}
+    .brand-icon{font-size:25px;color:var(--hot)}.brand span:last-child{color:var(--muted);font-weight:500}
+
+    .stage{position:relative;flex:1;display:grid;min-height:580px;isolation:isolate;min-width:0}
+    .slide{grid-area:1/1;align-self:center;width:100%;min-width:0;padding:40px 0;animation:slide-in .7s var(--ease) both}
+    .slide>div{min-width:0}
+    .slide.from-back{animation-name:slide-back}
+    @keyframes slide-in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes slide-back{from{opacity:0;transform:translateY(-16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--pink);font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0 0 24px}
+    .eyebrow::before{content:"";width:25px;height:1px;background:var(--hot)}
+    h1,h2,h3,p{margin:0}h1,h2{font-weight:900;letter-spacing:-.065em;line-height:1.01;overflow-wrap:anywhere}h2{font-size:clamp(3rem,5.5vw,5rem)}
+    .soft{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:500;letter-spacing:-.055em;color:var(--pink)}
+    .body-copy{color:var(--muted);font-size:17px;line-height:1.7;max-width:450px;margin-top:26px}
+    .primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;border:0;padding:15px 27px;border-radius:50px;background:var(--pink);color:#29122f;font-weight:800;font-size:16px;box-shadow:0 8px 40px #ff70b21a;transition:transform .2s,background .2s}
+    .primary:hover{background:#ffdbec;transform:translateY(-2px)}.primary:active{transform:scale(.97)}
+    .secondary{border:1px solid var(--line);border-radius:50px;background:transparent;padding:14px 22px;font-size:15px;min-height:48px}
+    .secondary:hover{background:#ffffff0c;border-color:#ffc4df66}
+    .intro{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:24px;align-items:center}
+    .intro h1{font-size:clamp(5.5rem,9.2vw,8.5rem)}.intro h1 span{display:block}
+    .intro .subtitle{font-size:16px;color:var(--muted);margin-top:28px;line-height:1.6}
+    .intro .primary{margin-top:36px}.tiny-note{display:block;color:var(--muted);font-size:13px;margin-top:15px}
+    .heart-art{position:relative;display:grid;place-items:center;min-height:430px}
+    .orbit{position:absolute;width:370px;height:370px;border:1px solid #ffb8de25;border-radius:50%}
+    .orbit::before{content:"";position:absolute;inset:-35px;border:1px solid #ffb8de12;border-radius:50%}
+    .hero-heart{display:block;font-family:"Segoe UI Emoji","Apple Color Emoji",sans-serif;font-size:220px;line-height:1.2;filter:drop-shadow(0 0 50px #ff4ca65c);animation:heartbeat 2.8s ease-in-out infinite;transform:rotate(-12deg);user-select:none}
+    @keyframes heartbeat{0%,100%{transform:rotate(-12deg) scale(1)}12%{transform:rotate(-12deg) scale(1.055)}24%{transform:rotate(-12deg) scale(1)}36%{transform:rotate(-12deg) scale(1.035)}}
+    .sticker{position:absolute;right:5px;top:32px;width:100px;height:100px;border-radius:50%;background:var(--purple);color:#2c173f;display:flex;flex-direction:column;justify-content:center;text-align:center;font-size:12px;font-weight:800;letter-spacing:.05em;transform:rotate(13deg);box-shadow:0 8px 28px #0003}
+    .sticker b{font-size:35px;letter-spacing:-.06em;line-height:1.1}.heart-caption{position:absolute;bottom:26px;left:10px;font-family:Georgia,serif;font-style:italic;font-size:22px;color:var(--pink);transform:rotate(-7deg)}
+    .sparkle{position:absolute;color:var(--pink);font-size:35px;animation:twinkle 4s ease-in-out infinite}.sparkle.one{top:6px;left:65px}.sparkle.two{right:25px;bottom:70px;font-size:23px;animation-delay:1.5s}
+    @keyframes twinkle{50%{opacity:.35;transform:scale(.8) rotate(20deg)}}
+    .chapter-tag{margin-top:30px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}.chapter-tag span{width:20px;height:1px;background:var(--line)}
+    .split{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:70px}
+    .counter-panel{position:relative;background:linear-gradient(145deg,#ff4ca611,#ba81ff0c);border:1px solid #ffc4df28;border-radius:30px;padding:40px 38px;overflow:hidden}
+    .counter-panel::before{content:"♡";position:absolute;right:-25px;top:-45px;color:#ffb8de0c;font-size:270px;line-height:1;pointer-events:none}
+    .counter-days{position:relative;font-size:clamp(5rem,8vw,7.5rem);font-weight:900;letter-spacing:-.07em;color:var(--pink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .counter-unit{font-size:22px;margin-top:3px;font-weight:600}.clock-row{display:flex;gap:32px;margin-top:30px;padding-top:25px;border-top:1px solid var(--line)}
+    .clock-row strong{font-size:30px;display:block;font-variant-numeric:tabular-nums}.clock-row span{font-size:14px;display:block;color:var(--muted);margin-top:6px}
+    .counter-totals{font-size:14px;color:var(--muted);line-height:1.8;margin-top:24px}.counter-totals b{color:var(--ink);font-weight:600}.since{font-size:13px;color:var(--pink);margin-bottom:18px;letter-spacing:.08em}
+    .timeline{display:flex;gap:16px;align-items:center;font-size:13px;color:var(--muted);margin-top:35px}.timeline span{height:1px;flex:1;max-width:130px;background:linear-gradient(to right,var(--hot),#ffffff20)}
+    .stat-heading{max-width:730px}.stats-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px;margin-top:38px}
+    .stat-card{position:relative;border:1px solid #ffffff1f;border-radius:24px;padding:28px 25px;min-height:255px;overflow:hidden;background:#ffffff05;display:flex;flex-direction:column;justify-content:space-between}
+    .stat-card:first-child{background:var(--pink);color:#321330;border-color:var(--pink)}.stat-card:nth-child(2){background:#bd92ff15}.stat-card:nth-child(3){background:#ff4ca610}
+    .stat-icon{font-size:28px}.stat-value{font-size:clamp(2.5rem,4vw,4rem);letter-spacing:-.06em;line-height:1.15;font-weight:900;overflow-wrap:anywhere}
+    .stat-label{font-size:16px;margin-top:9px;font-weight:600}.stat-note{font-size:13px;margin-top:12px;color:var(--muted);line-height:1.5}.stat-card:first-child .stat-note{color:#71405e}
+    .bottom-line{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:15px;line-height:1.6;margin-top:26px}.bottom-line span{color:var(--pink)}
+    .gallery-head{display:flex;align-items:end;justify-content:space-between;gap:30px}.gallery-head p{max-width:255px;font-size:15px;line-height:1.6;color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;align-items:stretch;gap:24px;margin:38px 0 8px}
+    @media(max-width:1050px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    .polaroid{transform:rotate(-3deg);margin:0;padding:12px 12px 21px;background:#ffeaf2;color:#381a36;border-radius:5px;box-shadow:0 15px 30px #0003;display:flex;flex-direction:column;min-width:0}
+    .polaroid:nth-child(3n+2){background:#f2e8ff}.polaroid:nth-child(3n){background:#ffe5f1}
+    .memory-frame{width:100%;flex-shrink:0;aspect-ratio:1.22;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #9a5d8725;background:linear-gradient(135deg,#ecc7dc,#dec7ef);color:#643951;border-radius:2px}
+    .memory-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.memory-symbol{text-align:center;padding:20px}.memory-symbol b{display:block;font-size:64px;font-weight:400;margin-bottom:18px}.memory-symbol span{font-family:Georgia,serif;font-style:italic;font-size:19px}
+    .photo-number{font-size:12px;letter-spacing:.08em;color:#936680;margin-top:17px}.photo-caption{min-height:3.75em;font-family:Georgia,serif;font-style:italic;font-size:22px;margin-top:5px;overflow-wrap:anywhere;line-height:1.25}
+    
+    .ending{display:grid;grid-template-columns:.78fr 1.22fr;gap:70px;align-items:center}.ending h2{font-size:clamp(3.8rem,6vw,5.7rem)}
+    .letter{position:relative;padding:38px 40px;background:linear-gradient(140deg,#ffc4df10,#bc86ff08);border:1px solid #ffc4df2b;border-radius:26px;transform:rotate(1deg)}
+    .letter-icon{font-size:32px;margin-bottom:23px}.letter-to{font-family:Georgia,serif;font-size:26px;font-style:italic;color:var(--pink);margin-bottom:19px}
+    .letter-message{font-size:17px;color:#e7d6e9;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere}.signature{font-family:Georgia,serif;font-size:24px;font-style:italic;color:var(--pink);margin-top:25px}.ending-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .footer{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:21px;flex:none}
+    .chapter-info{display:flex;gap:16px;align-items:center}.chapter-number{color:var(--pink);font-size:14px;font-variant-numeric:tabular-nums}.chapter-name{font-size:13px;color:var(--muted)}
+    .nav{display:flex;align-items:center;gap:8px}.nav-button{display:flex;gap:10px;align-items:center;justify-content:center;min-height:45px;min-width:93px;border:0;background:none;border-radius:50px;padding:10px 14px;font-size:14px}.nav-button:hover:not(:disabled){background:#ffffff0b}.nav-button svg{width:16px;height:16px}.nav-button.next{background:#ffffff0a;border:1px solid var(--line)}
+    .footer-note{color:var(--muted);font-size:12px}.footer-note span{color:var(--hot)}
+    .celebration{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}.burst-heart{position:absolute;left:50%;top:60%;font-size:var(--size);animation:burst 1.8s var(--ease) forwards;animation-delay:var(--delay)}
+    @keyframes burst{0%{opacity:0;transform:translate(-50%,-50%) scale(.1)}12%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--rotate)) scale(1.3)}}
+    .toast{position:fixed;z-index:10;bottom:30px;left:50%;transform:translateX(-50%);background:#ffeaf4;color:#36172f;box-shadow:0 8px 40px #0004;padding:14px 23px;border-radius:20px;font-size:14px;text-align:center;max-width:calc(100% - 32px);width:max-content;line-height:1.5}
+
+    .header-date{font-size:13px;letter-spacing:.06em;color:var(--muted);white-space:nowrap}.header-date span{color:var(--hot);margin-left:8px}
+    .playlist-label{font-size:12px;letter-spacing:.15em;color:var(--pink);margin-top:35px;line-height:1.7}
+    .love-chart{list-style:none;padding:0;margin:0;min-width:0;display:grid;gap:12px}
+    .love-chart li{display:flex;gap:18px;align-items:center;border:1px solid var(--line);border-radius:20px;background:#ffffff05;padding:27px 24px;min-width:0}
+    .love-chart li:first-child{background:linear-gradient(120deg,#ff4ca61c,#ba92ff11);border-color:#ffc4df40}
+    .chart-rank{font-size:14px;color:var(--purple);font-variant-numeric:tabular-nums}.chart-emoji{font-size:32px;flex:none}.love-chart li>div{flex:1;min-width:0}.love-chart h3{font-size:20px;line-height:1.3}.love-chart p{font-size:14px;line-height:1.6;color:var(--muted);margin-top:6px}.chart-heart{font-size:23px;color:var(--pink)}
+    .favorite-place{text-align:center;position:relative;padding-block:70px}.favorite-place .eyebrow{justify-content:center}.place-intro{font-size:18px;color:var(--muted);margin-top:30px}.favorite-place h2{font-size:clamp(4.5rem,10vw,9rem);margin-top:20px;text-shadow:0 0 70px #ff4ca626}.place-rule{display:flex;align-items:center;justify-content:center;gap:25px;font-size:30px;color:var(--hot);margin-top:28px}.place-rule span{height:1px;width:80px;background:linear-gradient(90deg,transparent,#ff4ca655)}.place-rule span:last-child{transform:rotate(180deg)}.place-copy{font-size:18px;line-height:1.8;color:var(--muted);margin-top:26px}.place-tag{display:inline-block;margin-top:30px;border:1px solid #ffc4df30;border-radius:50px;padding:12px 22px;font-size:12px;letter-spacing:.13em;color:var(--pink)}
+    .gratitude-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}.gratitude-grid article{border-top:1px solid #ffc4df44;padding-top:25px;min-width:0}.gratitude-grid article>span{font-size:35px}.gratitude-grid h3{font-size:23px;line-height:1.3;margin-top:20px}.gratitude-grid p{font-size:16px;color:var(--muted);line-height:1.8;margin-top:14px;max-width:320px}.gratitude-foot{font-size:28px;text-align:center;margin-top:40px;line-height:1.4}
+    .wish-list{display:grid;gap:18px;min-width:0}.wish-list article{display:flex;gap:22px;padding:25px 28px;border-radius:20px;background:#ffc4df;color:#3d1d39;box-shadow:0 10px 35px #0002;transform:rotate(-2deg)}.wish-list article:nth-child(2){background:#d4bcff;transform:rotate(2deg);margin-inline:12px -5px}.wish-list article:nth-child(3){background:#ffe0ee;transform:rotate(-1deg)}.wish-list article>span{font-size:30px;flex:none}.wish-list article>div{min-width:0}.wish-list h3{font-family:Georgia,serif;font-style:italic;font-weight:500;font-size:25px;line-height:1.3}.wish-list p{color:#714767;font-size:14px;line-height:1.6;margin-top:9px}
+    
+    @media(max-width:700px){.header-date{font-size:12px}.progress{gap:5px}.love-chart li{padding:23px 18px;gap:12px}.love-chart h3{font-size:18px}.love-chart p{font-size:13px}.chart-emoji{font-size:27px}.chart-heart{display:none}.playlist-label{margin-top:22px}.favorite-place{padding-block:55px}.place-intro{font-size:16px;margin-top:20px;line-height:1.7}.favorite-place h2{font-size:clamp(3.5rem,16vw,5rem);margin-top:22px}.favorite-place h2 .soft{display:block}.place-copy{font-size:16px}.place-tag{font-size:11px}.gratitude-grid{grid-template-columns:1fr;gap:23px;margin-top:30px}.gratitude-grid article{display:grid;grid-template-columns:42px 1fr;column-gap:14px;padding-top:22px}.gratitude-grid article>span{grid-row:1/3;font-size:28px}.gratitude-grid h3{font-size:20px;margin-top:0}.gratitude-grid p{font-size:15px;margin-top:8px;max-width:none}.gratitude-foot{font-size:24px;margin-top:28px}.wish-list{padding-inline:5px;gap:16px}.wish-list article{padding:23px 20px;gap:16px}.wish-list h3{font-size:23px}.wish-list article>span{font-size:26px}.wish-list article:nth-child(2){margin-inline:0}}
+    @media(min-width:1500px){.app{padding-top:35px;padding-bottom:30px}.stage{min-height:650px}}
+    @media(max-width:1050px){.app{padding:22px 30px}.split,.ending{gap:40px}.hero-heart{font-size:185px}.orbit{width:260px;height:260px}.heart-art{min-height:365px}.sticker{right:-5px;top:20px;width:86px;height:86px}.gallery{gap:20px}.counter-panel{padding:30px}.stats-grid{gap:12px}.stat-card{padding:24px 20px}.footer-note{display:none}}
+    @media(max-width:700px){.app{padding:15px 22px max(18px,env(safe-area-inset-bottom));min-height:100svh}.header{padding:16px 0 8px}.brand{font-size:13px;gap:7px}.brand-icon{font-size:22px}.brand span:last-child{display:none}.stage{min-height:0}.slide{padding:30px 0 32px}.eyebrow{font-size:12px;margin-bottom:20px;letter-spacing:.16em}h2{font-size:clamp(2.5rem,9vw,3.5rem)}.intro{display:flex;flex-direction:column-reverse;gap:0;align-items:stretch;text-align:center}.intro .eyebrow{justify-content:center;margin-bottom:15px}.intro h1{font-size:clamp(4.3rem,20vw,6.7rem)}.intro h1 span{display:inline}.intro h1 .soft{display:block}.intro .subtitle{margin-top:18px;font-size:15px}.intro .primary{margin-top:25px}.tiny-note{font-size:12px;margin-top:12px}.heart-art{min-height:200px;margin-top:-10px;margin-bottom:15px}.hero-heart{font-size:135px}.orbit{width:165px;height:165px}.orbit::before{inset:-18px}.sticker{width:65px;height:65px;font-size:9px;right:calc(50% - 147px);top:5px}.sticker b{font-size:24px}.sparkle.one{top:15px;left:calc(50% - 112px);font-size:25px}.sparkle.two{bottom:28px;right:calc(50% - 115px);font-size:20px}.heart-caption{font-size:16px;bottom:-5px;left:calc(50% - 66px)}.chapter-tag{display:none}.split,.ending{grid-template-columns:1fr;gap:27px}.body-copy{font-size:16px;margin-top:19px}.counter-panel{padding:25px 28px;border-radius:23px}.counter-days{font-size:5rem}.counter-unit{font-size:19px}.clock-row{margin-top:20px;padding-top:20px;justify-content:space-between;gap:15px}.clock-row strong{font-size:27px}.counter-totals{font-size:13px;margin-top:18px}.timeline{margin-top:20px}.stats-grid{grid-template-columns:1fr;margin-top:26px;gap:12px}.stat-card{min-height:145px;padding:20px 22px;display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:center}.stat-icon{font-size:27px}.stat-value{font-size:38px}.stat-label{font-size:15px;margin-top:4px}.stat-note{font-size:12px;margin-top:6px}.bottom-line{font-size:14px;align-items:start;margin-top:18px}.gallery-head{display:block}.gallery-head p{margin-top:18px;max-width:none;font-size:14px}.gallery{grid-template-columns:1fr;max-width:330px;margin:32px auto 15px;gap:26px}.polaroid{padding:12px 12px 21px}.memory-frame{aspect-ratio:1.25}.photo-caption{font-size:23px}.ending h2{font-size:3.7rem}.letter{padding:28px 25px;transform:none;border-radius:20px}.letter-message{font-size:16px;line-height:1.8}.letter-to{font-size:24px}.ending-actions{margin-top:24px}.footer{padding-top:15px;gap:8px}.chapter-info{gap:9px}.chapter-name{font-size:12px}.chapter-number{font-size:12px}.nav{gap:0}.nav-button{min-width:70px;min-height:44px;padding:10px;font-size:13px;gap:6px}.nav-button svg{width:14px}}
+    @media(max-width:360px){.app{padding-inline:16px}.brand{font-size:12px}.intro h1{font-size:4rem}.chapter-name{display:none}.ending h2{font-size:3.2rem}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.floating-heart,.celebration{display:none}.hero-heart{transform:rotate(-12deg)}}
+  </style>
+</head>
+<body>
+  <div class="ambient" id="ambient" aria-hidden="true"></div>
+  <div class="celebration" id="celebration" aria-hidden="true"></div>
+  <div class="app">
+    <nav class="progress" aria-label="Kapitoly našeho příběhu">
+      <button type="button" aria-label="1. Úvod" aria-current="step" class="is-current" data-slide="0"></button>
+      <button type="button" aria-label="2. Náš společný čas" data-slide="1"></button>
+      <button type="button" aria-label="3. Láska v číslech" data-slide="2"></button>
+      <button type="button" aria-label="4. Naše hitparáda" data-slide="3"></button>
+      <button type="button" aria-label="5. Moje oblíbené místo" data-slide="4"></button>
+      <button type="button" aria-label="6. Vzpomínky" data-slide="5"></button>
+      <button type="button" aria-label="7. Děkuju" data-slide="6"></button>
+      <button type="button" aria-label="8. Příští kapitola" data-slide="7"></button>
+      <button type="button" aria-label="9. Pro tebe" data-slide="8"></button>
+    </nav>
+    <header class="header">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">♡</span> LOVE WRAPPED <span> / náš příběh</span></div>
+      <span class="header-date">10. 10. 2025 <span aria-hidden="true">♡</span></span>
+    </header>
+    <main class="stage" id="stage" aria-label="Výroční prezentace">
+      <section class="slide intro" data-chapter="Náš rok" aria-labelledby="title-0">
+        <div>
+          <p class="eyebrow">Dva zkakané zadečky. Jeden příběh.</p>
+          <h1 id="title-0" tabindex="-1">Náš pvní zaprděný<span class="soft">rok.</span></h1>
+          <p class="subtitle">10. října 2025 – Naše cesta</p>
+          <button class="primary" id="startButton" type="button">Spustit náš příběh <span aria-hidden="true">♡</span></button>
+          <span class="tiny-note">Klepni a vrať se k tomu nejhezčímu.</span>
+          <div class="chapter-tag"><span></span> EDICE 2025 / 2026 <span></span></div>
+        </div>
+        <div class="heart-art" aria-hidden="true">
+          <div class="orbit"></div><span class="hero-heart">💖</span>
+          <div class="sticker">MOJE<b>TOP 1</b>JSI TY</div>
+          <span class="sparkle one">✧</span><span class="sparkle two">✦</span>
+          <span class="heart-caption">všechno začalo námi.</span>
+        </div>
+      </section>
+      <section class="slide split" data-chapter="Společný čas" aria-labelledby="title-1" hidden inert>
+        <div>
+          <p class="eyebrow">01 / každá chvíle se počítá</p>
+          <h2 id="title-1" tabindex="-1">Od prvního dne.<br><span class="soft">A pořád spolu.</span></h2>
+          <p class="body-copy">Tolik času, kdy je svět o něco hezčí.<br>Protože v něm mám tebe. ✨</p>
+          <div class="timeline"><time datetime="2025-10-10">10. 10. 2025</time><span></span><span style="flex:0;height:auto;background:none">dnes ♡</span></div>
+        </div>
+        <div class="counter-panel" role="group" aria-label="Uplynulý čas od 10. října 2025">
+          <p class="since">NÁŠ SPOLEČNÝ ČAS</p>
+          <div class="counter-days" id="days">0</div><p class="counter-unit">dní plných nás</p>
+          <div class="clock-row"><div><strong id="hours">00</strong><span>hodin</span></div><div><strong id="minutes">00</strong><span>minut</span></div><div><strong id="seconds">00</strong><span>sekund</span></div></div>
+          <p class="counter-totals">Celkem <b id="totalHours">0</b> hodin blízkosti.<br>A <b id="totalMinutes">0</b> minut společného příběhu.</p>
+          <p class="counter-totals" id="futureNote" hidden>Náš příběh začne 10. října 2025. 💖</p>
+        </div>
+      </section>
+      <section class="slide" data-chapter="Láska v číslech" aria-labelledby="title-2" hidden inert>
+        <p class="eyebrow">02 / naše malé rekordy</p>
+        <h2 id="title-2" class="stat-heading" tabindex="-1">Něco se dá spočítat.<br><span class="soft">Tohle se dá cítit.</span></h2>
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-icon" aria-hidden="true">💌</span><div><div class="stat-value" id="messagesValue">∞</div><h3 class="stat-label">Poslaných zpráv</h3><p class="stat-note">Nekonečno. A ještě jedna na dobrou noc.</p></div></article>
+          <article class="stat-card"><span class="stat-icon" aria-hidden="true">🍟</span><div><div class="stat-value" id="chipsValue">X</div><h3 class="stat-label">Společně snězených sranolek</h3><p class="stat-note">Nejlepší sousto? To snezené bez tvého vědomí.</p></div></article>
+          <article class="stat-card"><span class="stat-icon" aria-hidden="true">🚗</span><div><div class="stat-value" id="kmValue">X</div><h3 class="stat-label">Kilometrů za sebou</h3><p class="stat-note">Všechny cesty stejně vedou k tobě.</p></div></article>
+        </div>
+        <p class="bottom-line"><span aria-hidden="true">♡</span> Moje nejpřehrávanější myšlenka? Ty.</p>
+      </section>
+      <section class="slide split" data-chapter="Naše hitparáda" aria-labelledby="title-3" hidden inert>
+        <div><p class="eyebrow">03 / nejradši na repeat</p><h2 id="title-3" tabindex="-1">Naše největší<br><span class="soft">hity.</span></h2><p class="body-copy">Bez sluchátek. Bez tlačítka pauza.<br>Tyhle momenty můžu pořád dokola. 💕</p><p class="playlist-label">NÁŠ PLAYLIST / BEZ KONCE</p></div>
+        <ol class="love-chart">
+          <li><span class="chart-rank">01</span><span class="chart-emoji" aria-hidden="true">🫂</span><div><h3>Tvoje objetí</h3><p>Můj nejoblíbenější návrat domů.</p></div><span class="chart-heart" aria-hidden="true">♡</span></li>
+          <li><span class="chart-rank">02</span><span class="chart-emoji" aria-hidden="true">✨</span><div><h3>Náše společné zkakané zadečky</h3><p>Hlavně Kačenčin.</p></div><span class="chart-heart" aria-hidden="true">♡</span></li>
+          <li><span class="chart-rank">03</span><span class="chart-emoji" aria-hidden="true">💬</span><div><h3>„Umýt fazolku.“</h3><p>Protože fazolečka musí být čistoučká.</p></div><span class="chart-heart" aria-hidden="true">♡</span></li>
+        </ol>
+      </section>
+      <section class="slide favorite-place" data-chapter="Oblíbené místo" aria-labelledby="title-4" hidden inert>
+        <p class="eyebrow">04 / moje souřadnice štěstí</p>
+        <p class="place-intro">Moje nejoblíbenější místo na světě?</p>
+        <h2 id="title-4" tabindex="-1">Vedle <span class="soft">tebe.</span></h2>
+        <div class="place-rule" aria-hidden="true"><span></span>♡<span></span></div>
+        <p class="place-copy">V postýlce. Na cestách. Uprostřed ničeho.<br>Nezáleží, kde jsme. Když jsme tam spolu.</p>
+        <span class="place-tag">TY + JÁ = DOMA</span>
+      </section>
+      <section class="slide" data-chapter="Vzpomínky" aria-labelledby="title-5" hidden inert>
+        <p class="eyebrow">05 / naše oblíbené momenty</p>
+        <div class="gallery-head"><h2 id="title-5" tabindex="-1">Malé chvíle.<br><span class="soft">Velké vzpomínky.</span></h2><p>Výběr těch nejlepších foteček kačenečky.</p></div>
+        <div class="gallery">
+          <figure class="polaroid"><div class="memory-frame" data-memory="0"><img src="/vyroci/fotky/01.jpg" alt="První fotečka Kačenečky."></div><figcaption><div class="photo-number">VZPOMÍNKA 01</div><p class="photo-caption" id="caption0">První fotečka Kačenečky.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="1"><img src="/vyroci/fotky/02.jpg" alt="Kačenečka v Luhačovicích."></div><figcaption><div class="photo-number">VZPOMÍNKA 02</div><p class="photo-caption" id="caption1">Kačenečka v Luhačovicích.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="2"><img src="/vyroci/fotky/03.jpg" alt="První fotečka zkakaného zadečku."></div><figcaption><div class="photo-number">VZPOMÍNKA 03</div><p class="photo-caption" id="caption2">První fotečka zkakaného zadečku.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="3"><img src="/vyroci/fotky/04.jpg" alt="Kačenečka poprvé řídí autíčko."></div><figcaption><div class="photo-number">VZPOMÍNKA 04</div><p class="photo-caption" id="caption3">Kačenečka poprvé řídí autíčko.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="4"><img src="/vyroci/fotky/05.jpg" alt="Maličkatý spinKAČEK."></div><figcaption><div class="photo-number">VZPOMÍNKA 05</div><p class="photo-caption" id="caption4">Maličkatý spinKAČEK.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="5"><img src="/vyroci/fotky/06.jpg" alt="Kačenečka fotečka s WAWOU."></div><figcaption><div class="photo-number">VZPOMÍNKA 06</div><p class="photo-caption" id="caption5">Kačenečka fotečka s WAWOU.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="3"><img src="/vyroci/fotky/07.jpg" alt="Kačenečka poprvé řídí autíčko."></div><figcaption><div class="photo-number">VZPOMÍNKA 07</div><p class="photo-caption" id="caption6">Ipad kid.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="4"><img src="/vyroci/fotky/08.jpg" alt="Maličkatý spinKAČEK."></div><figcaption><div class="photo-number">VZPOMÍNKA 08</div><p class="photo-caption" id="caption7">KAKAčenečka.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="5"><img src="/vyroci/fotky/09.jpg" alt="Kačenečka fotečka s WAWOU."></div><figcaption><div class="photo-number">VZPOMÍNKA 09</div><p class="photo-caption" id="caption8">Kvik kvik Kačenečka.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="3"><img src="/vyroci/fotky/10.jpg" alt="Kačenečka poprvé řídí autíčko."></div><figcaption><div class="photo-number">VZPOMÍNKA 10</div><p class="photo-caption" id="caption9">Kačenečku píchla vosička.</p></figcaption></figure>
+          <figure class="polaroid"><div class="memory-frame" data-memory="5"><img src="/vyroci/fotky/11.jpg" alt="Kačenečka fotečka s WAWOU."></div><figcaption><div class="photo-number">VZPOMÍNKA 11</div><p class="photo-caption" id="caption10">První společná fotka.</p></figcaption></figure>
+        </div>
+      </section>
+      <section class="slide" data-chapter="Děkuju" aria-labelledby="title-6" hidden inert>
+        <p class="eyebrow">06 / maličkosti, které znamenají všechno</p>
+        <h2 id="title-6" tabindex="-1">Za tenhle rok.<br><span class="soft">A hlavně za tebe.</span></h2>
+        <div class="gratitude-grid">
+          <article><span aria-hidden="true">🌷</span><h3>Za obyčejné dny.</h3><p>Že i malé věci mají s tebou svoje kouzlo. A nikam nemusíme, aby nám bylo dobře.</p></article>
+          <article><span aria-hidden="true">🤍</span><h3>Za blízkost.</h3><p>Že někdy stačí jedno objetí. A všechno, co bylo těžké, je najednou o trochu lehčí.</p></article>
+          <article><span aria-hidden="true">💫</span><h3>Za to, že jsi ty.</h3><p>Za všechny tvoje malé zvláštnosti. Právě kvůli nim tě mám tolik rád.</p></article>
+        </div>
+        <p class="gratitude-foot soft">S tebou jsou i všední chvíle ty nejhezčí.</p>
+      </section>
+      <section class="slide split" data-chapter="Příští kapitola" aria-labelledby="title-7" hidden inert>
+        <div><p class="eyebrow">07 / to nejlepší ještě napíšeme</p><h2 id="title-7" tabindex="-1">Na příští rok<br><span class="soft">si přeju…</span></h2><p class="body-copy">Nemusí být dokonalý.<br>Stačí, když v něm bude hodně nás. ✨</p><p class="playlist-label">POKRAČOVÁNÍ NAŠEHO PŘÍBĚHU</p></div>
+        <div class="wish-list">
+          <article><span aria-hidden="true">🌍</span><div><h3>Další malá dobrodružství.</h3><p>Nová místa. Ztracené odbočky. Společné návraty.</p></div></article>
+          <article><span aria-hidden="true">☕</span><div><h3>Více pomalých rán.</h3><p>Nikam nespěchat. Ještě chvíli zůstat vedle tebe.</p></div></article>
+          <article><span aria-hidden="true">💖</span><div><h3>Čas jenom pro nás.</h3><p>Odložit všechno ostatní. A být opravdu spolu.</p></div></article>
+        </div>
+      </section>
+      <section class="slide ending" data-chapter="Pro tebe" aria-labelledby="title-8" hidden inert>
+        <div><p class="eyebrow">08 / moje nejoblíbenější osoba</p><h2 id="title-8" tabindex="-1">A příští rok?<br><span class="soft">Zase s tebou.</span></h2><p class="body-copy">Protože můj oblíbený příběh<br>je ten, který píšeme spolu. 🌹</p><div class="ending-actions"><button class="primary" id="loveButton" type="button">Na další kapitolu 💖</button><button class="secondary" id="replayButton" type="button">Přehrát znovu</button></div></div>
+        <article class="letter"><div class="letter-icon" aria-hidden="true">💌</div><p class="letter-to" id="letterTo">Pro tebe, lásko.</p><p class="letter-message" id="letterMessage"></p><p class="signature" id="signature">S láskou, tvoje fazolka ♡</p></article>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="chapter-info"><span class="chapter-number" id="chapterNumber">01 / 09</span><span class="chapter-name" id="chapterName">Náš rok</span></div>
+      <span class="footer-note">Stvořeno z maličkostí. A z lásky. <span>♡</span></span>
+      <nav class="nav" aria-label="Pohyb mezi kapitolami"><button class="nav-button" id="prevButton" type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>Zpět</button><button class="nav-button next" id="nextButton" type="button">Další<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></nav>
+    </footer>
+  </div>
+  <p class="toast" id="toast" role="status" hidden></p>
+  <p id="chapterAnnouncement" class="sr-only" role="status" aria-live="polite"></p>
+  <noscript><p style="position:relative;padding:20px;text-align:center;background:#351636">Pro spuštění příběhu a živého počítadla zapni JavaScript v prohlížeči.</p></noscript>
+  <!-- Osobní texty jsou v DEFAULTS; fotografie a popisky jsou přímo v HTML galerie. -->
+  <script type="application/json" id="story-data">{}</script>
+  <script>
+    'use strict';
+    (() => {
+      // Půlnoc 10. 10. 2025 v Česku (CEST). Pevný offset zajistí stejný
+      // začátek i na počítačích v jiných časových pásmech.
+      const START_DATE = '2025-10-10T00:00:00+02:00';
+      const DEFAULTS = {
+        chips: 'X', kilometers: 'X',
+
+        to: 'Pro tebe, kvikvičku Kačenečko.',
+        message: 'Děkuju za všechny dny, které jsou s tebou neobyčejné. Za smích, za objetí a za pocit, že jsem přesně tam, kde mám být.\n\nNevím, co nám přinese další rok. Ale vím, s kým ho chci prožít. S tebou.\n\nMiluju tě. Dnes, zítra a možná i pozitří 🤪',
+        signature: 'S láskou, tvoje fazolka ♡'
+      };
+      const $ = id => document.getElementById(id);
+      let stored = {};
+      try { stored = JSON.parse($('story-data').textContent); } catch { /* Platí výchozí hodnoty. */ }
+      if (!stored || typeof stored !== 'object' || Array.isArray(stored)) stored = {};
+      const textValue = (value, fallback, length) => typeof value === 'string' ? value.slice(0, length) : fallback;
+      const data = {
+        chips: textValue(stored.chips, DEFAULTS.chips, 18),
+        kilometers: textValue(stored.kilometers, DEFAULTS.kilometers, 18),
+        to: textValue(stored.to, DEFAULTS.to, 100),
+        message: textValue(stored.message, DEFAULTS.message, 4000),
+        signature: textValue(stored.signature, DEFAULTS.signature, 120),
+      };
+      const slides = [...document.querySelectorAll('.slide')];
+      const bars = [...document.querySelectorAll('[data-slide]')];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const formatter = new Intl.NumberFormat('cs-CZ');
+      const startTime = new Date(START_DATE).getTime();
+      let current = 0, toastTimer, burstTimer, touchStart = null, suppressClickUntil = 0;
+
+      function showToast(message) {
+        clearTimeout(toastTimer);
+        $('toast').textContent = message;
+        $('toast').hidden = false;
+        toastTimer = setTimeout(() => { $('toast').hidden = true; }, 5000);
+      }
+
+      function showSlide(index, moveFocus = true) {
+        const next = Math.max(0, Math.min(slides.length - 1, index));
+        if (next === current) return;
+        const backwards = next < current;
+        current = next;
+        slides.forEach((slide, i) => {
+          slide.hidden = i !== current;
+          slide.inert = i !== current;
+          slide.classList.toggle('from-back', backwards && i === current);
+        });
+        bars.forEach((bar, i) => {
+          bar.classList.toggle('is-past', i < current);
+          bar.classList.toggle('is-current', i === current);
+          if (i === current) bar.setAttribute('aria-current', 'step'); else bar.removeAttribute('aria-current');
+        });
+        $('prevButton').disabled = current === 0;
+        $('nextButton').disabled = current === slides.length - 1;
+        $('chapterNumber').textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+        $('chapterName').textContent = slides[current].dataset.chapter;
+        $('chapterAnnouncement').textContent = `Kapitola ${current + 1} z ${slides.length}: ${slides[current].dataset.chapter}`;
+        if (moveFocus) slides[current].querySelector('h1, h2').focus({ preventScroll: true });
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+
+      function tick(now = Date.now()) {
+        const elapsed = Math.max(0, Math.floor((now - startTime) / 1000));
+        $('days').textContent = formatter.format(Math.floor(elapsed / 86400));
+        $('hours').textContent = String(Math.floor(elapsed / 3600) % 24).padStart(2, '0');
+        $('minutes').textContent = String(Math.floor(elapsed / 60) % 60).padStart(2, '0');
+        $('seconds').textContent = String(elapsed % 60).padStart(2, '0');
+        $('totalHours').textContent = formatter.format(Math.floor(elapsed / 3600));
+        $('totalMinutes').textContent = formatter.format(Math.floor(elapsed / 60));
+        $('futureNote').hidden = now >= startTime;
+      }
+
+      function renderData() {
+        $('chipsValue').textContent = data.chips;
+        $('kmValue').textContent = data.kilometers;
+        $('letterTo').textContent = data.to;
+        $('letterMessage').textContent = data.message;
+        $('signature').textContent = data.signature;
+      }
+
+      function celebrate() {
+        showToast('Na nás. Na všechno, co teprve přijde. 💖');
+        if (reducedMotion.matches) return;
+        clearTimeout(burstTimer);
+        $('celebration').replaceChildren();
+        for (let i = 0; i < 32; i++) {
+          const heart = document.createElement('span');
+          heart.className = 'burst-heart';
+          heart.textContent = ['💖', '💕', '✨', '♡'][i % 4];
+          heart.style.setProperty('--x', `${(Math.random() - .5) * Math.min(window.innerWidth * 1.5, 1200)}px`);
+          heart.style.setProperty('--y', `${-100 - Math.random() * window.innerHeight * .8}px`);
+          heart.style.setProperty('--rotate', `${(Math.random() - .5) * 100}deg`);
+          heart.style.setProperty('--size', `${15 + Math.random() * 25}px`);
+          heart.style.setProperty('--delay', `${Math.random() * .2}s`);
+          $('celebration').appendChild(heart);
+        }
+        burstTimer = setTimeout(() => $('celebration').replaceChildren(), 2200);
+      }
+
+      $('startButton').addEventListener('click', () => showSlide(1));
+      $('prevButton').addEventListener('click', () => showSlide(current - 1));
+      $('nextButton').addEventListener('click', () => showSlide(current + 1));
+      $('replayButton').addEventListener('click', () => showSlide(0));
+      $('loveButton').addEventListener('click', celebrate);
+      bars.forEach(bar => bar.addEventListener('click', () => showSlide(Number(bar.dataset.slide))));
+      const interactive = target => target instanceof Element && Boolean(target.closest('button,a,input,textarea,select,[contenteditable="true"]'));
+      document.addEventListener('keydown', event => {
+        const typing = event.target instanceof Element && event.target.closest('input,textarea,select,[contenteditable="true"]');
+        if (typing || event.ctrlKey || event.metaKey || event.altKey) return;
+        if (interactive(event.target) && [' ', 'Enter'].includes(event.key)) return;
+        if (['ArrowRight', 'ArrowDown', ' ', 'Enter'].includes(event.key)) { event.preventDefault(); showSlide(current + 1); }
+        if (['ArrowLeft', 'ArrowUp'].includes(event.key)) { event.preventDefault(); showSlide(current - 1); }
+        if (event.key === 'Home') { event.preventDefault(); showSlide(0); }
+        if (event.key === 'End') { event.preventDefault(); showSlide(slides.length - 1); }
+      });
+      $('stage').addEventListener('click', event => {
+        if (Date.now() < suppressClickUntil || interactive(event.target) || window.getSelection()?.toString()) return;
+        const rect = $('stage').getBoundingClientRect();
+        showSlide(current + (event.clientX < rect.left + rect.width * .35 ? -1 : 1));
+      });
+      $('stage').addEventListener('touchstart', event => {
+        touchStart = event.touches.length === 1 && !interactive(event.target) ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+      }, { passive: true });
+      $('stage').addEventListener('touchend', event => {
+        if (!touchStart || !event.changedTouches.length) return;
+        const dx = event.changedTouches[0].clientX - touchStart.x;
+        const dy = event.changedTouches[0].clientY - touchStart.y;
+        if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) { suppressClickUntil = Date.now() + 600; showSlide(current + (dx < 0 ? 1 : -1)); }
+        touchStart = null;
+      }, { passive: true });
+      $('stage').addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
+      if (!reducedMotion.matches) {
+        for (let i = 0; i < 16; i++) {
+          const heart = document.createElement('span');
+          heart.className = 'floating-heart'; heart.textContent = i % 3 === 0 ? '♥' : '♡';
+          heart.style.setProperty('--left', `${Math.random() * 100}%`);
+          heart.style.setProperty('--size', `${12 + Math.random() * 18}px`);
+          heart.style.setProperty('--duration', `${14 + Math.random() * 14}s`);
+          heart.style.setProperty('--delay', `${-Math.random() * 28}s`);
+          $('ambient').appendChild(heart);
+        }
+      }
+      tick();
+      setInterval(() => { if (!document.hidden) tick(); }, 1000);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+      renderData();
+    })();
+  </script>
+</body>
+</html>
